@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    recommendData: null
+    recommendData: null,
+    singer: null,
   },
   mutations: {
     
