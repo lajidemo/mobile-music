@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     recommendData: null,
     singer: null,
+    dev1: 0,
   },
   mutations: {
     
