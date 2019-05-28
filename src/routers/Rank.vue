@@ -1,6 +1,6 @@
 <template>
   <div class="Rank CON">
-    <scroll :data="topList" v-if="topList.length">
+    <scroll :data="topList" v-if="topList.length" @require='_getRunk'>
       <ul>
         <li v-for="(list, index) in topList" :key="index">
           <img v-lazy="list.picUrl" alt="">
@@ -37,7 +37,7 @@ export default {
       const params = {}
       getRunk(url, params).then((res) => {
         console.log(res)
-        this.topList = res.data.data.topList
+        this.topList = res.data.topList
       })
         .catch((err) => {
           console.log(err)

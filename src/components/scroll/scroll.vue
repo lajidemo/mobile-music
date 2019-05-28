@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     _initBScroll () {
+      const that = this
       if (!this.$refs.wrapper) {
         return
       }
@@ -46,8 +47,17 @@ export default {
         preventDefault: this.preventDefault,
         scrollY: this.scrollY,
         scrollX: this.scrollX,
-        probeType: this.probeType
+        probeType: this.probeType,
+        pullDownRefresh: {
+          threshold: 50,
+          stop: 20
+        }
       })
+      function pullingDown () {
+        that.$emit('require')
+        that.scroll.finishPullDown()
+      }
+      this.scroll.on('pullingDown', pullingDown)
     },
     refresh () {
       this.scroll && this.scroll.refresh()

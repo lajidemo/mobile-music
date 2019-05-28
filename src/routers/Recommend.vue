@@ -1,6 +1,6 @@
 <template>
   <div class="Recommend CON">
-    <scroll :data="swiperData" v-if="hasData">
+    <scroll :data="swiperData" v-if="hasData" @require='_getRecommend'>
       <div class="recommendData">
         <div class="swiper">
           <swiper :options="swiperOption">
@@ -72,8 +72,8 @@ export default {
       const params = {}
       getRecommend(url, params).then((res) => {
         console.log(res)
-        this.swiperData = res.data.data.slider
-        this.songList = res.data.data.songList
+        this.swiperData = res.data.slider
+        this.songList = res.data.songList
         this.hasData = true
         console.log(this.swiperData)
       })
