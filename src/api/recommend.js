@@ -1,6 +1,6 @@
 // import jsonp from '@/assets/js/jsonp'
 import axios from 'axios'
-import { CYQQParams, UYQQParams } from './config'
+import { CYQQParams, UYQQSingerParams, UYQQSingerDetParams } from './config'
 
 // 设置拦截器
 axios.interceptors.response.use((res) => {
@@ -22,6 +22,21 @@ export function getRunk (url, params) {
 
 export function getSinger (url, params) {
   return axios.get(url, {
-    params: { ...UYQQParams, ...params }
+    params: { ...UYQQSingerParams, ...params }
+  })
+}
+
+export function getSingerDet (url, params) {
+  return axios.get(url, {
+    params: { ...UYQQSingerDetParams,
+      data: {
+        'comm': { 'ct': 24, 'cv': 0 },
+        'singer': {
+          'method': 'get_singer_detail_info',
+          'param': { 'sort': 5, 'singermid': params, 'sin': 0, 'num': 20 },
+          'module': 'music.web_singer_info_svr'
+        }
+      }
+    }
   })
 }

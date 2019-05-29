@@ -409,7 +409,7 @@ var PinYin = {
  */
 const isChinese = function (str) {
   var entryVal = str
-  var cnChar = entryVal.match(/[^\x00-\x80]/g)
+  var cnChar = entryVal.match(/[^x00-x80]/g)
   if (cnChar != null && cnChar.length > 0) { return true }
   return false
 }
@@ -426,7 +426,7 @@ const getPinYin = function (str, split, uppercase) {
   uppercase = uppercase || false
   var l2 = str.length
   var result = ''
-  var reg = new RegExp('[a-zA-Z0-9\- ]')
+  var reg = new RegExp('[a-zA-Z0-9- ]')
   var val
   var name
   for (var i = 0; i < l2; i++) {
@@ -473,7 +473,7 @@ const getPinYinFirstCharacter = function (str, split, uppercase) {
   uppercase = uppercase || false
   var len = str.length
   var result = ''
-  var reg = new RegExp('[a-zA-Z0-9\- ]')
+  var reg = new RegExp('[a-zA-Z0-9- ]')
   var val
   var name
   for (var i = 0; i < len; i++) {

@@ -4,10 +4,13 @@
       <ul class="singerList">
         <li v-for="(item,index) in singerList" :key="index">
           <h2>{{item[0]}}</h2>
-          <div class="singerArr" v-for="(item1,key) in item[1]" :key="key">
+          <router-link class="singerArr"
+            v-for="(item1,key) in item[1]" :key="key"
+            :to="{name:'SingerDet', params:{id: item1.singer_mid}}"
+          >
             <img v-lazy="item1.singer_pic" alt="">
             <p>{{item1.singer_name}}</p>
-          </div>
+          </router-link>
         </li>
       </ul>
       <ol class="singerNameList">
@@ -15,6 +18,9 @@
       </ol>
     </scroll>
     <loading v-else></loading>
+    <transition>
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -48,7 +54,7 @@ export default {
       const url = '/API/cgi-bin/musicu.fcg'
       const params = {}
       getSinger(url, params).then((res) => {
-        console.log(res)
+        // console.log(res)
         this.RawSingerList = res.singerList.data.singerlist
       })
         .catch((err) => {
@@ -134,10 +140,11 @@ export default {
     }
     ol.singerNameList{
       position: fixed;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-34%);
-      z-index: 100;
+      right: 10px;
+      padding: 5px;
+      top: 30%;
+      // transform: translateY(-34%);
+      z-index: 10;
       text-align: center;
       color: $color-text-l;
       font-size: $font-size-small;

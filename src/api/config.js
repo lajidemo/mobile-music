@@ -10,7 +10,7 @@ export const CYQQParams = {
   needNewCode: 1
 }
 
-export const UYQQParams = {
+export const UYQQSingerParams = {
   '-': 'getUCGI3668503529326672',
   g_tk: '1198423036',
   loginUin: '289455964',
@@ -36,4 +36,17 @@ export const UYQQParams = {
       }
     }
   }
+}
+
+export const UYQQSingerDetParams = {
+  '-': 'getUCGI25241739703193766',
+  g_tk: '5381',
+  loginUin: 0,
+  hostUin: 0,
+  format: 'json',
+  inCharset: 'utf-8',
+  outCharset: 'utf-8',
+  notice: 0,
+  platform: 'yqq.json',
+  needNewCode: 0
 }

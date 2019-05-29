@@ -51,7 +51,8 @@ export default {
         pullDownRefresh: {
           threshold: 50,
           stop: 20
-        }
+        },
+        swipeTime: 1500
       })
       function pullingDown () {
         that.$emit('require')
@@ -60,6 +61,7 @@ export default {
       this.scroll.on('pullingDown', pullingDown)
     },
     refresh () {
+      console.log(this.scroll)
       this.scroll && this.scroll.refresh()
     }
   },

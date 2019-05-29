@@ -2,9 +2,11 @@
   <div id="app">
     <m-head></m-head>
     <tab></tab>
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <transition>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
@@ -26,6 +28,7 @@ export default {
   color: $color-theme;
 }
 .CON{
+  background-color: $color-background;
   position: fixed;
   width: 100%;
   top: 88px;
@@ -34,5 +37,11 @@ export default {
   .scroll{
     height: 100%;
   }
+}
+.v-enter-active,.v-leave-active {
+  transition: all .3s ease;
+}
+.v-enter, .v-leave-to{
+  transform: translate3d(100%,0,0);
 }
 </style>
