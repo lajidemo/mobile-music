@@ -7,17 +7,19 @@
         <router-view></router-view>
       </keep-alive>
     </transition>
+    <play></play>
   </div>
 </template>
 
 <script>
 import MHead from '@/components/head/Head'
 import Tab from '@/components/tab/Tab'
+import Play from '@/routers/Play'
 
 export default {
   name: 'home',
   components: {
-    MHead, Tab
+    MHead, Tab, Play
   }
 }
 </script>

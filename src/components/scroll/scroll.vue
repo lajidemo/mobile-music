@@ -18,7 +18,7 @@ export default {
     },
     probeType: {
       type: Number,
-      default: 2
+      default: 3
     },
     scrollY: {
       type: Boolean,
@@ -48,6 +48,7 @@ export default {
         scrollY: this.scrollY,
         scrollX: this.scrollX,
         probeType: this.probeType,
+        momentum: false,
         pullDownRefresh: {
           threshold: 50,
           stop: 20
@@ -58,7 +59,11 @@ export default {
         that.$emit('require')
         that.scroll.finishPullDown()
       }
+      function scroll (y) {
+        that.$emit('onScroll', y)
+      }
       this.scroll.on('pullingDown', pullingDown)
+      this.scroll.on('scroll', scroll)
     },
     refresh () {
       console.log(this.scroll)

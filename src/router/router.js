@@ -4,7 +4,7 @@ import Recommend from '../routers/Recommend'
 import Singer from '../routers/Singer'
 import Rank from '../routers/Rank'
 import Search from '../routers/Search'
-import SingerDet from '@/components/singerDet/singerDet'
+import SingerDet from '@/routers/SingerDet'
 
 Vue.use(Router)
 
